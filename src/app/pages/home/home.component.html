@@ -1,0 +1,42 @@
+<h2>Listado de usuarios</h2>
+
+<div *ngIf="getAllUsers().length > 0; else elseBlock">   
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Email</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of getAllUsers(); index as i">
+          <th scope="row">{{i+1}}</th>
+          <td>{{user.nombre | titlecase}}</td>
+          <td>{{user.apellido | titlecase}}</td>
+          <td>{{user.email}}</td>
+          <td><i class="fa fa-pencil" aria-hidden="true" [routerLink]="['/edit_user', i+1]"></i></td>
+          <td><i class="fa fa-trash" aria-hidden="true" (click)="removeUsuari(i)"></i></td>
+        </tr>        
+      </tbody>
+  </table>
+  <div class="row">     
+    <div class="col-lg-8">
+      <button class="btn btn-success me-1" [routerLink]="['/add_user']">Añadir usuario</button> 
+      <button class="btn btn-primary" (click)="resetAll()" >Borrar toda la lista</button> 
+    </div>     
+  </div>      
+</div>
+<ng-template #elseBlock>
+  <span style="color:red">Lista vacía!!!. Genere nuevos usuarios.</span>  
+  <div class="row mt-2">     
+    <div class="col-2">
+      <button class="btn btn-success" [routerLink]="['/add_user']">Añadir usuario</button>  
+    </div>
+  </div>
+</ng-template>
+
+
