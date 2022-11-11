@@ -31,8 +31,14 @@ export class AddEditUserComponent implements OnInit {
     // si el valor de id no pertenece a ningún elemento
     // va a página no encontrada
     this.id = this.route.snapshot.params['id'];    
-    this.is_add_user = !this.id;   
+    this.is_add_user = !this.id; 
 
+    // crear formulario usuario (añadir y actualizar)
+    this.create_form_user();
+    
+  }
+
+  create_form_user(): void {
     // validaciones necesarias
     this.formulario = this.fb.group({
       nombre: ['', [Validators.required]],
