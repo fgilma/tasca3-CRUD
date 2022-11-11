@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user.model';
-import { LoginUser } from 'src/app/models/user_login.model';
-import { LoginServiceService } from 'src/app/services/login-service.service';
+import { LoginUser } from '../models/user_login.model';
+import { LoginServiceService } from '../services/login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -50,7 +49,7 @@ export class LoginComponent implements OnInit {
         this.form_login_valido = true;
         this.mensaje_validacion = "Usuario correcto"
         this.formulario_login.reset();
-        this.router.navigate(['/home']);
+        this.router.navigate(['application/home']);
       }
       else {
         this.form_login_valido = false;

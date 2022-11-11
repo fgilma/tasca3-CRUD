@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,7 +12,7 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
 export class HeaderComponent implements OnInit {
   
   title: string = "CRUD TASCA 3";
-  subtitle: string = "Crear un CRUD con Angular y datos persistentes en LocalStorage, login y guards" 
+  subtitle: string = "Crear un CRUD en Angular y datos persistentes en LocalStorage, login, guards y módulos lazy-loading" 
  
   constructor(private loginService: LoginServiceService,
               private router: Router) { }

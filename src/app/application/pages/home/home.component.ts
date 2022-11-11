@@ -8,7 +8,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // Llama al servicio userService para listar todos los items
+// Llama al servicio userService para listar todos los items
   // de LocalStorage, y borra uno o todos los elementos.
   // Si quieres editar o crear un nuevo usuario te lleva a las 
   // páginas de add_user o edit_user/id_item 

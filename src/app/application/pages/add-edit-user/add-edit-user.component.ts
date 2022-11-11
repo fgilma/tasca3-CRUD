@@ -10,7 +10,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./add-edit-user.component.css']
 })
 export class AddEditUserComponent implements OnInit {
-  
+
   formulario!: FormGroup;
   titulo!:string; 
   mensaje_validacion!: string;

@@ -7,7 +7,7 @@
                     <ul *ngIf="isLogged()" class="navbar-nav position-absolute bottom-50 end-0">                        
                         <li class="nav-item pt-2 me-2">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            <span> {{userLogin() | titlecase}}</span>
+                            <span> {{userLogin()|titlecase}}</span>
                         </li>
                         <li class="nav-item">
                             <button class="btn btn-outline-dark me-4" type="button" (click)="logout()">Logout</button>

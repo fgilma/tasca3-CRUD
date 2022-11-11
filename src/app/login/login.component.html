@@ -2,12 +2,12 @@
 <form [formGroup] = "formulario_login" (submit)="login()">  
     <div class="form-group col-6 mt-3">
         <label for="usuario">Usuario</label>
-        <input type="text" class="form-control mt-2" formControlName="usuario" placeholder="Nombre usuario">
+        <input type="text" class="form-control mt-2" formControlName="usuario" placeholder="admin">
     </div>
     
     <div class="form-group col-6 mt-3">
         <label for="password">Password</label>
-        <input type="password" class="form-control mt-2" formControlName="password" placeholder="email">
+        <input type="password" class="form-control mt-2" formControlName="password" placeholder="admin@gmail.com">
     </div>
 
     <div class="form-group col-6 mt-3">
@@ -19,4 +19,5 @@
         <span  [ngStyle]="{color: form_login_valido==true ? 'green': 'red'}">{{mensaje_validacion}}</span>          
     </div>    
 </div>
+
 
