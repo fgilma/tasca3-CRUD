@@ -12,23 +12,23 @@ export class LoginServiceService {
   }
   getLogin(login_user: LoginUser): boolean {
     let users : User[];
-    console.log(login_user);
-    users = this.userService.getAllUsers();
-    let pepe: string[] = [];
-    let papa: string[] = [];
+    let nombre_lista: string[] = [];
+    let password_lista: string[] = [];
     let login: boolean;
-    users.forEach((user)=>{pepe.push(user.nombre);
-                           papa.push(user.email);
+   
+    users = this.userService.getAllUsers();    
+    users.forEach((user)=>{nombre_lista.push(user.nombre);
+                           password_lista.push(user.email);
                           });   
-    console.log(pepe);
-    if ((login_user.usuario =='admin') || ((pepe.includes(login_user.usuario)) && (papa.includes(login_user.password)))){
-      console.log("si lo ve");
+ 
+    if ((login_user.usuario =='admin') || ((nombre_lista.includes(login_user.usuario)) && (password_lista[nombre_lista.indexOf(login_user.usuario)]==login_user.password))){
+     
       sessionStorage.setItem('user',login_user.usuario);
       login = true;
 
     }    
     else{
-      console.log("no lo ve");
+     
       login = false;
     }
 
@@ -36,12 +36,8 @@ export class LoginServiceService {
     
   }
 
-  getUSer(): string {
-    let nameLogin: string;
-    nameLogin = sessionStorage.getItem('user')!
-    //console.log("fsdsdgdsgd");
-    //console.log(nameLogin);
-    return nameLogin
+  getUSer(): string {    
+    return sessionStorage.getItem('user')!
   }
 
   logOut(): void {
