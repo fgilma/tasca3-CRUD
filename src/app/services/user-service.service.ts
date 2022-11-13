@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -12,19 +13,20 @@ export class UserServiceService {
   constructor() {
 
    // Al abrir el navegador asigna a una lista los datos guardados en LocalStorage 
-   this.lista_usuario = this.getAllUsers();
+   this.getAllUsers().subscribe(items => this.lista_usuario = items);
    
   }
   
   // Devuelve el objeto solicitado de la lista
-  getUser(id: number): User  {    
+  getUser(id: number): User {    
     return this.lista_usuario[id-1]
   }
+ 
 
   // Devuelve todos los objetos guardados en LocalStorage
   // en una lista de objetos User,
   // si no existen datos entrega una lista vacía
-  getAllUsers(): User[] {
+  getAllUsers(): Observable<User[]> {
     let lista_usuarios: User[] = [];
 
     if (localStorage.getItem('users')) {      
@@ -33,7 +35,7 @@ export class UserServiceService {
         lista_usuarios.push(value);
       });      
     }    
-    return lista_usuarios
+    return of(lista_usuarios)
   }
 
   // Inserta un nuevo elemento en LocalStorage

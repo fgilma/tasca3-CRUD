@@ -15,11 +15,19 @@ export class LoginServiceService {
     let nombre_lista: string[] = [];
     let password_lista: string[] = [];
     let login: boolean;
+    
    
-    users = this.userService.getAllUsers();    
-    users.forEach((user)=>{nombre_lista.push(user.nombre);
+    this.userService.getAllUsers().subscribe( items =>
+                    {
+                      users = items;
+                      users.forEach((user)=>{nombre_lista.push(user.nombre);
+                        password_lista.push(user.email);
+                       });   
+                    }
+      );    
+    /*users.forEach((user)=>{nombre_lista.push(user.nombre);
                            password_lista.push(user.email);
-                          });   
+                          }); */  
  
     if ((login_user.usuario =='admin') || ((nombre_lista.includes(login_user.usuario)) && (password_lista[nombre_lista.indexOf(login_user.usuario)]==login_user.password))){
      

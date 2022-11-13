@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
       }
       else {
         this.form_login_valido = false;
-        this.mensaje_validacion = "Usuario incorrecto"
+        this.mensaje_validacion = "Usuario o password incorrecto"
       }      
     }
     else {
